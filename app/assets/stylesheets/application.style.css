@@ -1,0 +1,39 @@
+body{
+    font-size: 14px;
+}
+nav .nav-link{
+    font-size: 18px;
+}
+
+
+.btn-menu:hover{
+    background-color: darkblue;
+}
+
+.btn-menu.active{
+    background-color: darkblue;
+}
+
+.box-card{
+    background-color: #F9E2AF;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.divisao-titulo{
+    font-size: 16px;
+}
+
+.titulo-table{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+@media screen and (min-width: 576px) and (max-width: 1199px){
+    .box-card .table th,.box-card .table td{font-size: 12px;}
+
+    .titulo-table{font-size: 18px;}
+    .divisao-titulo{font-size: 14px;}
+}

@@ -2,9 +2,10 @@
 
 <%= render @student %>
 
-<div>
-  <%= link_to "Edit this student", edit_student_path(@student) %> |
-  <%= link_to "Back to students", students_path %>
-
-  <%= button_to "Destroy this student", @student, method: :delete %>
+<div class="p-3">
+  <div class="p-3">
+    <%= link_to "Voltar", students_path, :class => "btn btn-primary" %>
+    <%= link_to "Editar", edit_student_path(@student), :class => "btn btn-primary" %>
+  </div>
+  <%= button_to "Apagar Estudante", @student, method: :delete, :class => "btn btn-danger" %>
 </div>

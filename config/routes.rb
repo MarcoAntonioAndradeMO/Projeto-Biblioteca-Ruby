@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :authors
   resources :employers
   resources :students
+  resources :welcome
 
   root to: 'welcome#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
