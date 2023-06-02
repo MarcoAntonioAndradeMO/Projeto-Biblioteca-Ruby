@@ -6,6 +6,8 @@ class CreateBooks < ActiveRecord::Migration[7.0]
       t.string :isbn
       t.integer :quantity
 
+
+
       t.timestamps
     end
   end

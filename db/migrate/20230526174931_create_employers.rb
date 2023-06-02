@@ -4,8 +4,8 @@ class CreateEmployers < ActiveRecord::Migration[7.0]
       t.string :proper_name
       t.string :function
       t.date :effectuation_date
-      t.string :resignation_date
-      t.string :date
+      t.date :resignation_date
+      t.string :loans
 
       t.timestamps
     end

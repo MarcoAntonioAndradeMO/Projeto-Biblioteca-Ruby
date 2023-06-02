@@ -65,6 +65,6 @@ class EmployersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def employer_params
-      params.require(:employer).permit(:proper_name, :function, :effectuation_date, :resignation_date, :date)
+      params.require(:employer).permit(:proper_name, :function, :effectuation_date, :resignation_date, :loans)
     end
 end
