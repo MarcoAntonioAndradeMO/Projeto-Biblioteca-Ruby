@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_31_143640) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_05_185721) do
   create_table "authors", force: :cascade do |t|
     t.string "proper_name"
     t.string "signature"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "book_id"
+    t.index ["book_id"], name: "index_authors_on_book_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -25,6 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_143640) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "author_id", null: false
+    t.index ["author_id"], name: "index_books_on_author_id"
   end
 
   create_table "employers", force: :cascade do |t|
@@ -64,4 +68,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_143640) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "authors", "books"
+  add_foreign_key "books", "authors"
 end

@@ -21,15 +21,21 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
+    author = Author.find_by(signature: book_params[:author_signature])
     @book = Book.new(book_params)
+    @book.author_id = author.id
 
     respond_to do |format|
-      if @book.save
-        format.html { redirect_to book_url(@book), notice: "Book was successfully created." }
-        format.json { render :show, status: :created, location: @book }
+      if author
+        if @book.save
+          format.html { redirect_to book_url(@book), notice: "Book was successfully created." }
+          format.json { render :show, status: :created, location: @book }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @book.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        redirect_to new_book_path, alert: "Autor não encontrado."
       end
     end
   end
@@ -64,7 +70,7 @@ class BooksController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def book_params
-      params.require(:book).permit(:book_name, :year, :isbn, :quantity)
-    end
+  def book_params
+    params.require(:book).permit(:book_name, :author_id, :year, :isbn, :quantity, :author_signature)
+  end
 end

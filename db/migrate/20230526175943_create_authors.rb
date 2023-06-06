@@ -4,6 +4,8 @@ class CreateAuthors < ActiveRecord::Migration[7.0]
       t.string :proper_name
       t.string :signature
 
+
+
       t.timestamps
     end
   end
