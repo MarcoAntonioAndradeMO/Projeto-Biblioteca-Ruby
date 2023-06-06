@@ -5,7 +5,6 @@ class CreateAuthors < ActiveRecord::Migration[7.0]
       t.string :signature
 
 
-
       t.timestamps
     end
   end
