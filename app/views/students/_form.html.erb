@@ -11,27 +11,28 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :proper_name, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :Nome_do_Aluno, style: "display: block" %>
     <%= form.text_field :proper_name %>
   </div>
 
-  <div>
-    <%= form.label :registration, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :Matrícula, style: "display: block" %>
     <%= form.text_field :registration %>
   </div>
 
-  <div>
-    <%= form.label :course, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :Curso, style: "display: block" %>
     <%= form.text_field :course %>
   </div>
 
-  <div>
-    <%= form.label :cpf, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :CPF, style: "display: block" %>
     <%= form.text_field :cpf %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3 ms-2">
+    <%= form.submit class: "btn btn-success"%>
   </div>
+
 <% end %>

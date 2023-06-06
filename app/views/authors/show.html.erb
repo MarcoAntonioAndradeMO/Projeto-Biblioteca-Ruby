@@ -1,10 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @author %>
+<div class="ms-2">
+  <%= render @author %>
+</div>
 
-<div>
-  <%= link_to "Edit this author", edit_author_path(@author) %> |
-  <%= link_to "Back to authors", authors_path %>
-
-  <%= button_to "Destroy this author", @author, method: :delete %>
+<div class="p-3">
+  <div class="p-3">
+  <%= link_to "Edit this author", edit_author_path(@author), :class => "btn btn-primary" %> |
+  <%= link_to "Back to authors", authors_path , :class => "btn btn-primary"%>
+  </div>
+  <%= button_to "Destroy this author", @author, method: :delete, :class => "btn btn-danger" %>
 </div>

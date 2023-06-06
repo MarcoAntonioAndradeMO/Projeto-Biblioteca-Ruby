@@ -1,6 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<h1 class="p-4">Alunos</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h1 class="h2 mt-4 mb-4">Alunos</h1>
+      <div class="input-group mb-5 align-items-center">
+        <span class="h5 ps-4">Período da Pesquisa: </span><label class="ms-2" for="inicio">De: </label>
+        <input id="data-inicio" class="form-control ms-2" type="date" /><label class="ms-2" for="final">Até: </label>
+        <input id="data-final" class="form-control ms-2" type="date" />
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container d-flex justify-content-end p-3">
   <%= link_to "Novo Aluno", new_student_path, :class => "btn btn-primary" %>
@@ -15,6 +26,7 @@
         <th>Matrícula</th>
         <th>Curso</th>
         <th>CPF</th>
+        <th>Visualizar</th>
         <th>Editar</th>
         <th>Deletar</th>
         <th colspan="3"></th>
@@ -28,6 +40,7 @@
           <td><%= student.registration %></td>
           <td><%= student.course %></td>
           <td><%= student.cpf %></td>
+          <td><%= link_to "Detalhes", student, method: :post,:class => "btn btn-primary" %></td>
           <td><%= link_to "Editar", edit_student_path(student), :class => "btn btn-primary" %></td>
           <td><%= link_to "Deletar", student, method: :delete, data: {confirm: ("Tem certeza que deseja apagar ?")}, :class => "btn btn-primary" %></td>
         </tr>

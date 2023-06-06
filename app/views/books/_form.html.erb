@@ -11,33 +11,32 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :book_name, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :Nome_do_Livro, style: "display: block" %>
     <%= form.text_field :book_name %>
   </div>
 
-  <div>
-    <%= form.label :author_signature, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :Assinatura_do_Autor, style: "display: block" %>
     <%= form.text_field :author_signature %>
   </div>
 
-
-  <div>
-    <%= form.label :year, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :Ano, style: "display: block" %>
     <%= form.date_field :year %>
   </div>
 
-  <div>
-    <%= form.label :isbn, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :ISBN, style: "display: block" %>
     <%= form.text_field :isbn %>
   </div>
 
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :Quantidade, style: "display: block" %>
     <%= form.number_field :quantity %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3 ms-2">
+    <%= form.submit class: "btn btn-success" %>
   </div>
 <% end %>
