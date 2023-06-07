@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :proper_name, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :Nome, style: "display: block" %>
     <%= form.text_field :proper_name %>
   </div>
 
-  <div>
-    <%= form.label :function, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :Cargo, style: "display: block" %>
     <%= form.text_field :function %>
   </div>
 
-  <div>
-    <%= form.label :effectuation_date, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :Data_de_adimissão, style: "display: block" %>
     <%= form.date_field :effectuation_date %>
   </div>
 
-  <div>
-    <%= form.label :resignation_date, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :Data_de_demissão, style: "display: block" %>
     <%= form.text_field :resignation_date %>
   </div>
 
-  <div>
-    <%= form.label :loans, style: "display: block" %>
+  <div class="mb-3 ms-2">
+    <%= form.label :Empréstimos, style: "display: block" %>
     <%= form.text_field :loans %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3 ms-2">
+    <%= form.submit class: "btn btn-success"%>
   </div>
 <% end %>
