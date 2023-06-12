@@ -28,7 +28,8 @@ class BooksController < ApplicationController
     respond_to do |format|
       if author
         if @book.save
-          format.html { redirect_to book_url(@book), notice: "Book was successfully created." }
+          AddAuthorToBook.new(author_id: author.id, book_id: @book.id)
+          format.html { redirect_to book_url(@book), notice: "Livro criado com Suceso!" }
           format.json { render :show, status: :created, location: @book }
         else
           format.html { render :new, status: :unprocessable_entity }
