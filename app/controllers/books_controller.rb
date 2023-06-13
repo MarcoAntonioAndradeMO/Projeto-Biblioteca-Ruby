@@ -29,15 +29,6 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.theme_id = theme.id
 
-    puts "@@@@@@@@@@@@@@@@@@@@"
-    puts "@@@@@@@@@@@@@@@@@@@@"
-    puts "@@@@@@@@@@@@@@@@@@@@"
-    puts book.inspect
-    puts "@@@@@@@@@@@@@@@@@@@@"
-    puts "@@@@@@@@@@@@@@@@@@@@"
-    puts "@@@@@@@@@@@@@@@@@@@@"
-
-
     respond_to do |format|
       if author
         if @book.save
@@ -59,6 +50,7 @@ class BooksController < ApplicationController
       #   redirect_to new_book_path, alert: "Tema não encontrado."
       # end
     end
+  end
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
@@ -94,4 +86,4 @@ class BooksController < ApplicationController
     params.require(:book).permit(:book_name, :author_id, :year, :isbn, :quantity, :author_signature, :theme)
   end
   end
-  end
+
