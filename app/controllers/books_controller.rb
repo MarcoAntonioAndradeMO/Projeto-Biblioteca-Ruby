@@ -25,21 +25,40 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.author_id = author.id
 
+    theme = Book.find_by(theme: book_params[:theme])
+    @book = Book.new(book_params)
+    @book.theme_id = theme.id
+
+    puts "@@@@@@@@@@@@@@@@@@@@"
+    puts "@@@@@@@@@@@@@@@@@@@@"
+    puts "@@@@@@@@@@@@@@@@@@@@"
+    puts book.inspect
+    puts "@@@@@@@@@@@@@@@@@@@@"
+    puts "@@@@@@@@@@@@@@@@@@@@"
+    puts "@@@@@@@@@@@@@@@@@@@@"
+
+
     respond_to do |format|
       if author
         if @book.save
           AddAuthorToBook.new(author_id: author.id, book_id: @book.id)
+          AddThemeToBook.new(theme_id: theme.id, book_id: @book.id)
+
           format.html { redirect_to book_url(@book), notice: "Livro criado com Suceso!" }
           format.json { render :show, status: :created, location: @book }
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @book.errors, status: :unprocessable_entity }
         end
+
       else
         redirect_to new_book_path, alert: "Autor não encontrado."
       end
+
+      # else
+      #   redirect_to new_book_path, alert: "Tema não encontrado."
+      # end
     end
-  end
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
@@ -59,7 +78,7 @@ class BooksController < ApplicationController
     @book.destroy
 
     respond_to do |format|
-      format.html { redirect_to books_url, notice: "Book was successfully destroyed." }
+      format.html { redirect_to books_url, notice: "Livro apagado com sucesso." }
       format.json { head :no_content }
     end
   end
@@ -72,6 +91,7 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
   def book_params
-    params.require(:book).permit(:book_name, :author_id, :year, :isbn, :quantity, :author_signature)
+    params.require(:book).permit(:book_name, :author_id, :year, :isbn, :quantity, :author_signature, :theme)
   end
-end
+  end
+  end
