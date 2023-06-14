@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_132936) do
     t.string "proper_name"
     t.string "function"
     t.date "effectuation_date"
-    t.date "resignation_date"
+    t.string "resignation_date"
     t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
